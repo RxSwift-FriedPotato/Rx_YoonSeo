@@ -3,7 +3,7 @@
  
 |Week|Content|README|
 |:----------------------:|:--------------------:|:--------------------:|
-|`1주차`|RxSwift란 무엇인가?, Observable, Disposesable| 
+|`1주차`|RxSwift란 무엇인가?, Observable, Disposesable| [📓Link](https://github.com/ezidayzi/RxSwift_Study/blob/main/README/README_Week1.md)
 |`2주차`|BehaviorSubject, PublishSubject, ReplaySubject|
 |`3주차`|Operators|
 |`4주차`|Single|
