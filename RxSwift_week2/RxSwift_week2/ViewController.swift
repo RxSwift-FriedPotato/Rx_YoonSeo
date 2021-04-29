@@ -20,24 +20,21 @@ class ViewController: UIViewController {
     func publishSubject(){
         print("\n\nPublishSubject")
         let disposeBag = DisposeBag()
-        
-        let subject = PublishSubject<String>() //observer
+        let subject = PublishSubject<String>()
         
         subject.onNext("Hi")
         
         let o1 = subject.subscribe {print (">>1",$0)}
         o1.disposed(by: disposeBag)
-//
-//        subject.onNext("RxSwift")
-//
-//        let o2 = subject.subscribe{print(">>2",$0)}
-//        o2.disposed(by: disposeBag)
-//
-//        subject.onNext("Subject")
-//        subject.onCompleted()
-//
-//        let o3 = subject.subscribe{print(">>3",$0)}
-//        o3.disposed(by: disposeBag)
+        
+        subject.onNext("a")
+        subject.onNext("b")
+
+        let o2 = subject.subscribe{print(">>2",$0)}
+        o2.disposed(by: disposeBag)
+        
+        subject.onNext("c")
+        subject.onNext("d")
         
     }
 
@@ -52,40 +49,39 @@ class ViewController: UIViewController {
         
         let o1 = subject.subscribe {print (">>1",$0)}
         o1.disposed(by: disposeBag)
-//
-//        subject.onNext("RxSwift")
-//
-//        let o2 = subject.subscribe{print(">>2",$0)}
-//        o2.disposed(by: disposeBag)
-//
-//        subject.onNext("Subject")
-//        subject.onCompleted()
-//
-//        let o3 = subject.subscribe{print(">>3",$0)}
-//        o3.disposed(by: disposeBag)
+        
+        subject.onNext("a")
+        subject.onNext("b")
+
+        let o2 = subject.subscribe{print(">>2",$0)}
+        o2.disposed(by: disposeBag)
+        
+        subject.onNext("c")
+        subject.onNext("d")
     }
     
     func replaySubject(){
         print("\n\nReplaySubject")
         let disposeBag = DisposeBag()
         
-        let subject = ReplaySubject<String>.create(bufferSize: 2) //observer
+        let subject = ReplaySubject<String>.create(bufferSize: 4) //observer
         
-//        subject.onNext("Hi")
+        subject.onNext("Hi 1")
+        subject.onNext("Hi 2")
+        subject.onNext("Hi 3")
+        subject.onNext("Hi 4")
         
         let o1 = subject.subscribe {print (">>1",$0)}
         o1.disposed(by: disposeBag)
-//
-//        subject.onNext("RxSwift")
-//
-//        let o2 = subject.subscribe{print(">>2",$0)}
-//        o2.disposed(by: disposeBag)
-//
-//        subject.onNext("Subject")
-//        subject.onCompleted()
-//
-//        let o3 = subject.subscribe{print(">>3",$0)}
-//        o3.disposed(by: disposeBag)
+        
+        subject.onNext("a")
+        subject.onNext("b")
+
+        let o2 = subject.subscribe{print(">>2",$0)}
+        o2.disposed(by: disposeBag)
+        
+        subject.onNext("c")
+        subject.onNext("d")
     }
     
 }
