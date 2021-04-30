@@ -45,7 +45,10 @@ class ViewController: UIViewController {
         
         let subject = BehaviorSubject<String>(value: "start") //observer
         
-        subject.onNext("Hi")
+        subject.onNext("Hi 1")
+        subject.onNext("Hi 2")
+        subject.onNext("Hi 3")
+        subject.onNext("Hi 4")
         
         let o1 = subject.subscribe {print (">>1",$0)}
         o1.disposed(by: disposeBag)
