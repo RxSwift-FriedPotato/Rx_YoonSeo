@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         print("\n\nReplaySubject")
         let disposeBag = DisposeBag()
         
-        let subject = ReplaySubject<String>.create(bufferSize: 4) //observer
+        let subject = ReplaySubject<String>.create(bufferSize: 1) //observer
         
         subject.onNext("Hi 1")
         subject.onNext("Hi 2")
