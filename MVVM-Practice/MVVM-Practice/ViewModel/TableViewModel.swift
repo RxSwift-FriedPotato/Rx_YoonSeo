@@ -9,7 +9,12 @@ import Foundation
 import RxSwift
 
 class TableViewModel{
-    private var friendList      : [FriendDataModel] = []
+    var friendList      : [FriendDataModel] = []
+    
+    init(){
+        setFriendList()
+    }
+    
     private func setFriendList()
     {
         friendList.append(contentsOf: [
@@ -55,5 +60,40 @@ class TableViewModel{
             
         ])
     }
-    
 }
+
+extension TableViewModel{
+    var numberOfSections: Int {
+       return 1
+    }
+
+    func numberOfRowsInSection(_ section: Int) -> Int {
+       return self.friendList.count
+    }
+
+    func articleAtIndex(_ index: Int) -> FriendViewModel {
+       let article = self.friendList[index]
+       return FriendViewModel(article)
+    }
+}
+
+class FriendViewModel{
+    private let friendDataModel : FriendDataModel
+    
+    init(_ friend: FriendDataModel){
+        self.friendDataModel = friend
+    }
+    
+    var name: String{
+        return self.friendDataModel.name
+    }
+    
+    var state: String{
+        return self.friendDataModel.state
+    }
+    
+    var img : UIImage{
+        return self.friendDataModel.image
+    }
+}
+ 
