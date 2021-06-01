@@ -8,16 +8,12 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController {
+class FriendViewController: UIViewController {
     
     private let friendLabel     = UILabel()
     private let topBarView      = UIView()
     private let settingButton   = UIButton()
-    
     private let friendTableView = UITableView()
-    private let yoonseoProfile = FriendDataModel(image: .profileUserImg, name: "기뮨서", state: "우헤헤")
-    
-    private var friendList      : [FriendDataModel] = []
     
     private let viewModel : TableViewModel = TableViewModel()
     
@@ -26,8 +22,6 @@ class ViewController: UIViewController {
         setTableView()
         setLayout()
         setAttributes()
-        
-        
     }
 
     private func setTableView(){
@@ -80,13 +74,13 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController : UITableViewDelegate{
+extension FriendViewController : UITableViewDelegate{
     func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 73
     }
 }
 
-extension ViewController : UITableViewDataSource{
+extension FriendViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel.numberOfRowsInSection(section)
     }
