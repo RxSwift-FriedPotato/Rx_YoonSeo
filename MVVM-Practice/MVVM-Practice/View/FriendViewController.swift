@@ -25,6 +25,7 @@ class FriendViewController: UIViewController {
     }
 
     private func setTableView(){
+        view.backgroundColor = .white
         friendTableView.dataSource = self
         friendTableView.delegate = self
         friendTableView.register(MyProfileTableViewCell.self,

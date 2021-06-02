@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
     private let mainStackView        = UIStackView()
     
     private let disposeBag = DisposeBag()
-    var viewModel: ViewModel = ViewModel()
+    var viewModel: LoginViewModel = LoginViewModel()
     
 //MARK:- View Cycle
     
@@ -70,16 +70,21 @@ class LoginViewController: UIViewController {
           .disposed(by: disposeBag)
         
         
-        // Tap Gesture
-        [signInButton,signUpButton].forEach {
-            $0.rx.tap
-                .bind{
-                    print("tap signUpButton")
-                    guard let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ViewController") as? FriendViewController else {return}
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
-                .disposed(by: disposeBag)
-        }
+        signInButton.rx.tap
+            .bind{
+                print("tap signInButton")
+                let vc = SignInViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        signUpButton.rx.tap
+            .bind{
+                print("tap signUpButton")
+                let vc = SignUpViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
     }
 
     

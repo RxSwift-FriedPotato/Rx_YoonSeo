@@ -5,11 +5,19 @@
 //  Created by 김윤서 on 2021/05/30.
 //
 
-import Foundation
 import RxSwift
 import RxCocoa
 
-final class ViewModel : ViewModelType{
+final class LoginViewModel : ViewModelType{
+   
+    let dependency: Dependency
+    var disposeBag: DisposeBag = DisposeBag()
+    let input: Input
+    let output: Output
+    
+    private let idText$: BehaviorSubject<String?>
+    private let passwordText$: BehaviorSubject<String?>
+    
     struct Dependency {
         var id: String?
         var password: String?
@@ -25,16 +33,6 @@ final class ViewModel : ViewModelType{
         var signInEnabled: Driver<Bool>
     }
     
-    let dependency: Dependency
-    
-    var disposeBag: DisposeBag = DisposeBag()
-    
-    let input: Input
-    
-    let output: Output
-    
-    private let idText$: BehaviorSubject<String?>
-    private let passwordText$: BehaviorSubject<String?>
     
     init(dependency: Dependency = Dependency(id: nil, password: nil)) {
         self.dependency = dependency
