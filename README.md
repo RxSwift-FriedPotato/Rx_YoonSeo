@@ -7,7 +7,7 @@
 |`2주차`|BehaviorSubject, PublishSubject, ReplaySubject|[📓Link](https://github.com/ezidayzi/RxSwift_Study/blob/main/README/README_Week2.md)
 |`3주차`|Operators|[📓Link](https://github.com/ezidayzi/RxSwift_Study/blob/main/README/README_Week3.md)
 |`4주차`|Single|
-|`5주차`|
-|`6주차`|
+|`5주차`| 카카오 로그인 만들기 |
+|`6주차`| 카카오 친구 목록 만들기 |
 |`7주차`|
 |`8주차`|
