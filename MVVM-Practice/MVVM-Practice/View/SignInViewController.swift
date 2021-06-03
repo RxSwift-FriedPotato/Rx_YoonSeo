@@ -43,7 +43,17 @@ class SignInViewController: UIViewController {
     func bind(){
         signInButton.rx.tap
             .bind{
-                self.navigationController?.popViewController(animated: true)
+                
+                // 여기서 분기처리 해주면 되지않을까?
+                print("tap sign Up Button")
+               guard let pvc = self.presentingViewController as? UINavigationController else { return }
+               print(pvc.className)
+               self.dismiss(animated: true){
+                   pvc.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+                   pvc.pushViewController(FriendViewController(), animated: true)
+               }
+
+
             }
             .disposed(by: disposeBag)
     }

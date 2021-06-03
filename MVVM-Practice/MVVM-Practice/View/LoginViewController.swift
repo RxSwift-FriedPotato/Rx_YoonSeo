@@ -73,8 +73,14 @@ class LoginViewController: UIViewController {
         signInButton.rx.tap
             .bind{
                 print("tap signInButton")
-                let vc = SignInViewController()
-                self.navigationController?.pushViewController(vc, animated: true)
+                let signInVC = SignInViewController()
+                
+                if let id = self.idTextField.text{
+                    signInVC.message = "\(id)님 \n가입이 완료되었습니다."
+                }
+                
+                signInVC.modalPresentationStyle = .fullScreen
+                self.present(signInVC, animated: true, completion: nil)
             }
             .disposed(by: disposeBag)
         
