@@ -16,6 +16,10 @@
 		DD0F0D99266369BE00927945 /* FreindDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0F0D98266369BE00927945 /* FreindDataModel.swift */; };
 		DD0F0DA026636A5F00927945 /* MyProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0F0D9F26636A5F00927945 /* MyProfileTableViewCell.swift */; };
 		DD0F0DA526636CCC00927945 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0F0DA426636CCC00927945 /* TableViewModel.swift */; };
+		DD1B9DD726691C57003A4432 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1B9DD626691C57003A4432 /* LoginResponse.swift */; };
+		DD1B9DDA26691C63003A4432 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1B9DD926691C63003A4432 /* LoginRequest.swift */; };
+		DD1B9DDD26691C6F003A4432 /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1B9DDC26691C6F003A4432 /* SignUpResponse.swift */; };
+		DD1B9DE026691CB2003A4432 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1B9DDF26691CB2003A4432 /* SignUpRequest.swift */; };
 		DD85A6D52666359900748B9A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85A6D42666359900748B9A /* LoginViewModel.swift */; };
 		DD85A6D8266635B800748B9A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85A6D7266635B800748B9A /* LoginViewController.swift */; };
 		DD85A6E1266635E700748B9A /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85A6DB266635E700748B9A /* UIButtonExtension.swift */; };
@@ -47,6 +51,10 @@
 		DD0F0D98266369BE00927945 /* FreindDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreindDataModel.swift; sourceTree = "<group>"; };
 		DD0F0D9F26636A5F00927945 /* MyProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileTableViewCell.swift; sourceTree = "<group>"; };
 		DD0F0DA426636CCC00927945 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
+		DD1B9DD626691C57003A4432 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		DD1B9DD926691C63003A4432 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		DD1B9DDC26691C6F003A4432 /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
+		DD1B9DDF26691CB2003A4432 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
 		DD85A6D42666359900748B9A /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		DD85A6D7266635B800748B9A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DD85A6DB266635E700748B9A /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
@@ -131,6 +139,10 @@
 			isa = PBXGroup;
 			children = (
 				DD0F0D98266369BE00927945 /* FreindDataModel.swift */,
+				DD1B9DD626691C57003A4432 /* LoginResponse.swift */,
+				DD1B9DD926691C63003A4432 /* LoginRequest.swift */,
+				DD1B9DDC26691C6F003A4432 /* SignUpResponse.swift */,
+				DD1B9DDF26691CB2003A4432 /* SignUpRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -305,9 +317,13 @@
 				DD85A6E3266635E700748B9A /* UIViewExtension.swift in Sources */,
 				DD85A6F72666367500748B9A /* ViewModelType.swift in Sources */,
 				DD0F0D7B2663686500927945 /* AppDelegate.swift in Sources */,
+				DD1B9DDA26691C63003A4432 /* LoginRequest.swift in Sources */,
 				DD85A6E6266635E700748B9A /* KakaoColor.swift in Sources */,
+				DD1B9DDD26691C6F003A4432 /* SignUpResponse.swift in Sources */,
 				DD85A6E4266635E700748B9A /* UIStackViewExtension.swift in Sources */,
+				DD1B9DD726691C57003A4432 /* LoginResponse.swift in Sources */,
 				DD9D2144266744B300CDB82A /* SignInViewController.swift in Sources */,
+				DD1B9DE026691CB2003A4432 /* SignUpRequest.swift in Sources */,
 				DD9D21502667477F00CDB82A /* SignInViewModel.swift in Sources */,
 				DD0F0D7D2663686500927945 /* SceneDelegate.swift in Sources */,
 				DD0F0D99266369BE00927945 /* FreindDataModel.swift in Sources */,
