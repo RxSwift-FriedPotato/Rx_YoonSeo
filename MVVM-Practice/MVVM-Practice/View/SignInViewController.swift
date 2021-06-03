@@ -10,34 +10,42 @@ import SnapKit
 import RxCocoa
 import RxSwift
 
+extension UIViewController {
+    
+    var className: String {
+        NSStringFromClass(self.classForCoder).components(separatedBy: ".").last!
+    }
+
+}
+
 class SignInViewController: UIViewController {
 
     public var message           : String?
     private let titleLabel       = UILabel()
     private let signInButton     = UIButton()
     
+    var disposeBag: DisposeBag = DisposeBag()
+    
     @objc
     func onClickSignInButton(_ sender: Any) {
-        let presentingVC = self.presentingViewController!
-        let navigationController = presentingVC is UINavigationController ? presentingVC as? UINavigationController : presentingVC.navigationController
-
-        self.dismiss(animated: true){
-            navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-            navigationController?.pushViewController(FriendViewController(), animated: true)
-        }
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setFunction()
+        bind()
         setLayout()
         setAttribute()
     }
 
     
-    func setFunction(){
-        signInButton.addTarget(self, action: #selector(onClickSignInButton(_:)), for: .touchUpInside)
+    func bind(){
+        signInButton.rx.tap
+            .bind{
+                self.navigationController?.popViewController(animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
     func setLayout(){
