@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import RxSwift
 
 class FriendViewController: UIViewController {
     
@@ -16,24 +17,44 @@ class FriendViewController: UIViewController {
     private let friendTableView = UITableView()
     
     private let viewModel : TableViewModel = TableViewModel()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
         setLayout()
         setAttributes()
+        
+        bindTabelView()
     }
 
     private func setTableView(){
         view.backgroundColor = .white
-        friendTableView.dataSource = self
-        friendTableView.delegate = self
         friendTableView.register(MyProfileTableViewCell.self,
                                       forCellReuseIdentifier: MyProfileTableViewCell.identifier)
         
         friendTableView.separatorStyle = .none
     }
     
+    
+    private func bindTabelView(){
+        
+        friendTableView
+            .rx.setDelegate(self)
+            .disposed(by: disposeBag)
+        
+        viewModel.output.tableData
+            .bind(to: friendTableView.rx.items){( tv, row, item) -> UITableViewCell in
+                if let cell = self.friendTableView.dequeueReusableCell(withIdentifier: MyProfileTableViewCell.identifier, for: IndexPath.init(row: row, section: 0)) as? MyProfileTableViewCell {
+                    cell.setData(profile: item)
+                    cell.selectionStyle = .none
+                    return cell
+                }
+                return UITableViewCell()
+            }
+            .disposed(by: disposeBag)
+        
+    }
     
     
     private func setAttributes(){
@@ -79,23 +100,4 @@ extension FriendViewController : UITableViewDelegate{
     func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 73
     }
-}
-
-extension FriendViewController : UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.numberOfRowsInSection(section)
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = friendTableView.dequeueReusableCell(withIdentifier: MyProfileTableViewCell.identifier,for: indexPath) as? MyProfileTableViewCell {
-            
-            let friendVM = self.viewModel.articleAtIndex(indexPath.row)
-            cell.setData(profile: FriendDataModel(image: friendVM.img, name: friendVM.name, state: friendVM.state))
-            cell.selectionStyle = .none
-            return cell
-        }
-        return UITableViewCell()
-    }
-    
-    
 }
